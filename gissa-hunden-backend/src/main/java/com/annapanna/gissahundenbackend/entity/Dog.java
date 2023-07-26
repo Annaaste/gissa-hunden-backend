@@ -32,6 +32,9 @@ public class Dog {
     private String image;
 
     @Column
+    private String alt_text;
+
+    @Column
     private String category;
 
     @Column(name="created_at", nullable = false, updatable = false)

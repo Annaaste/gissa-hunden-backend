@@ -22,6 +22,7 @@ public class DogController {
 
     @PostMapping("/dogs")
     public Dog saveDogs(@RequestBody Dog dog) {
+        System.out.println("Received dog data: " + dog);
         return dogsService.saveDog(dog);
     }
 
