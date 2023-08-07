@@ -29,7 +29,8 @@ public class Dog {
     private String anecdote;
 
     @Column
-    private String image;
+    @Lob // Use Lob annotation for large objects like images
+    private byte[] image;
 
     @Column
     private String alt_text;
