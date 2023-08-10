@@ -45,6 +45,10 @@ public class Dog {
     @Column(name="updated_at")
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
 
 

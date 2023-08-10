@@ -30,7 +30,7 @@ public class DogController {
     @PostMapping("/dogs")
     public Dog saveDogs(@RequestParam("image") MultipartFile image, @RequestParam("dog_name") String dogName,
                         @RequestParam("breed") String breed, @RequestParam("anecdote") String anecdote,
-                        @RequestParam("alt_text") String altText) {
+                        @RequestParam("alt_text") String altText, @RequestParam("user_id") Long userId) {
         try {
             byte[] imageBytes = image.getBytes(); // Get the image as bytes
 
@@ -42,7 +42,7 @@ public class DogController {
             dog.setAlt_text(altText);
 
             System.out.println("Received dog data: " + dog);
-            return dogsService.saveDog(dog);
+            return dogsService.saveDog(dog, userId);
         } catch (IOException e) {
             throw new RuntimeException("Error while processing the image", e);
         }
@@ -60,8 +60,8 @@ public class DogController {
     }
 
     @PutMapping("/dogs")
-    public Dog updateDog(@RequestBody Dog updatedDog) {
-        return dogsService.saveDog(updatedDog);
+    public Dog updateDog(@RequestBody Dog updatedDog, @RequestParam("user_id") Long userId) {
+        return dogsService.saveDog(updatedDog, userId);
     }
 }
 

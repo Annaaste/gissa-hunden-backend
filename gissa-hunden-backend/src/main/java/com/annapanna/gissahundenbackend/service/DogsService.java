@@ -8,7 +8,7 @@ public interface DogsService {
 
     List<Dog> readAll();
 
-    Dog saveDog(Dog dog);
+    Dog saveDog(Dog dog, Long userId);
 
     Dog readDog(Long id);
 
